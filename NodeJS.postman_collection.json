@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "6ab72760-8bd2-45bd-8368-b34bdbfed4e4",
+		"name": "NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "document",
+							"value": "1234567",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "María",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Fernandez",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "maria@ucp.edu.co",
+							"type": "text"
+						},
+						{
+							"key": "birthdate",
+							"value": "12/12/1990",
+							"type": "text"
+						},
+						{
+							"key": "credit",
+							"value": "900000",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/customer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"customer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/customer/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"customer",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "diego",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "prueba123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/customer/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"customer",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "diego",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "prueba123",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/customer/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"customer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delivery: Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGllZ28iLCJpYXQiOjE1OTEzOTkxMjQsImV4cCI6MTU5MTM5OTQyNH0.v0FzFWvhJbZ9HNQMI_1hthQ0B7zbWsWayYCPUQ9uAFY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customer\": \"5eda6dcfd8fb442e4c54e945\",\n\t\"products\": [\n\t\t\"RICE\",\n\t\t\"COCACOLA\",\n\t\t\"CHICKEN\"\n\t\t],\n\t\"address\": \"street 10a #10-67, Ibagué, Tolima\",\n\t\"phone\":\"(+57)320123456\",\n\t\"schedules\": \"2020-04-06 08:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/delivery/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"delivery",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Authorization Token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGllZ28iLCJpYXQiOjE1OTEzOTU3NDQsImV4cCI6MTU5MTM5NTc3NH0.RfhT2ZzeqYLDJW7wH4orzY8Qw9nFwweB-BWLFgLc8K0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/datos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"datos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delivery: getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGllZ28iLCJpYXQiOjE1OTEzOTkxMjQsImV4cCI6MTU5MTM5OTQyNH0.v0FzFWvhJbZ9HNQMI_1hthQ0B7zbWsWayYCPUQ9uAFY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/delivery/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"delivery",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delivery: getById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGllZ28iLCJpYXQiOjE1OTEzOTkwMDcsImV4cCI6MTU5MTM5OTAzN30.GJJHhBUD_M7x165XAZ77kQRqZmfIxQ9DruLn6d9DBoM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/delivery/getById/5edad3dc75f30d0d687968bc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"delivery",
+						"getById",
+						"5edad3dc75f30d0d687968bc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delivery: update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGllZ28iLCJpYXQiOjE1OTEzOTkxMjQsImV4cCI6MTU5MTM5OTQyNH0.v0FzFWvhJbZ9HNQMI_1hthQ0B7zbWsWayYCPUQ9uAFY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"5edacfeac26f8e24f8598899\",\n\t\"customer\": \"5eda6dcfd8fb442e4c54e945\",\n\t\"products\": [\n\t\t\"CHOCOLATE\",\n\t\t\"PAN\",\n\t\t\"AREPAS\"\n\t\t],\n\t\"address\": \"Cra 10a #10-67, Ibagué, Tolima\",\n\t\"phone\":\"(+57)320123456\",\n\t\"schedules\": \"2020-06-06T08:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/delivery/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"delivery",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delivery: Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGllZ28iLCJpYXQiOjE1OTEzOTk0NTAsImV4cCI6MTU5MTM5OTc1MH0.kmm22BHQ6s1HslpQQanpdJzQNh2ULf8w3i2JS85w6WQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/delivery/delete/5edad3dc75f30d0d687968bc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"delivery",
+						"delete",
+						"5edad3dc75f30d0d687968bc"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
