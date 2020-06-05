@@ -14,7 +14,10 @@ db();
 loginSchema.statics = {
     signIn: function (data, cb) {
         let login = new this(data);
-        login.save();
+        let isSaved = login.save();
+        if (isSaved) {
+          return cb(login);
+        }
     },
     login: function (data, callback) {
         let login = new this(data);
@@ -32,10 +35,10 @@ loginSchema.statics = {
                 const token = jwt.sign({
                         user: userDB.user,
                 }, config.get("keySecret"), {
-                        expiresIn: 30
+                        expiresIn: 300
                 })
                 userDB.token = token;
-                loginDTO.update({_id: userDB._id}, {
+                loginDTO.updateOne({_id: userDB._id}, {
                     token: token 
                 }, function(err, affected, resp) {
                    console.log(affected);
