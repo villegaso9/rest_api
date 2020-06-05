@@ -1,5 +1,6 @@
 /** packages */
 const helper = require("../helper.controller");
+const bcrypt = require('bcrypt');
 
 /** dto file */
 const DTO = require("../../models/dto/customer-dto/customer.dto");
@@ -13,7 +14,7 @@ exports.createCustomer = (req, res, next) => {
         email: req.body.email,
         birthdate: req.body.birthdate,
         credit: req.body.credit,
-        password: req.body.password
+        password: bcrypt.hashSync(req.body.password, 10)
     };
 
     console.log("------------------------");
