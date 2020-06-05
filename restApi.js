@@ -43,9 +43,14 @@ app.delete("/api/customer/delete", (req, res, next) => {
     controller.removeCustomer(req, res, next);
 });
 
+/** Sign In customer */
+app.post("/api/customer/signin", (req, res, next) => {
+    controllerLogin.signinUser(req,res, next);
+});
+
 /** Login customer */
-app.post("/api/customer/login", (req, res, next) => {
-    controllerLogin.loginUser(req,res, next);
+app.post("/api/customer/login", function (req, res, next) {
+    controllerLogin.loginUser(req, res, next)
 });
 
 /** Run server */

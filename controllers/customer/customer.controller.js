@@ -19,6 +19,7 @@ exports.createCustomer = (req, res, next) => {
     console.log("------------------------");
     console.log(customer.password);
     console.log("------------------------");
+    
     DTO.create(customer, (err, data) => {
         if (err) {
             res.json({

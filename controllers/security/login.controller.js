@@ -1,29 +1,56 @@
 /** packages */
-const helper = require("../helper.controller");
+const bcrypt = require('bcrypt');
 
 /** dto file */
 const DTO = require("../../models/dto/security-dto/login.dto");
 
 /** creating new login */
-exports.loginUser = (req, res, next) => {
-    var AES = require("crypto-js/aes");
-    var SHA256 = require("crypto-js/sha256");
+exports.signinUser = (req, res, next) => {
+    
     let login = {
-        usuario: req.body.usuario,
-        contrasenia: SHA256(req.body.contrasenia),
+        user: req.body.user,
+        password: bcrypt.hashSync(req.body.password, 10),
+        token: null
     };
 
-    DTO.login(login, (err, data) => {
+    DTO.signIn(login, (err, data) => {
         if (err) {
             res.json({
                 message: "KO",
                 error: err
             });
         }
-        res.json({
+        if (data) {
+            res.json({
+                message: "OK",
+                data: data
+            });
+        }
+    });
+}
+
+/** Login a User */
+exports.loginUser = (req, res, next) => {
+    let login = {
+        user: req.body.user,
+        password: req.body.password,
+        token: null
+    }
+
+    DTO.login(login, (err, data) => {
+        if (err) {            
+            res.json({
+                message: "KO",
+                error: err
+            });
+        }
+        
+        if (data) {
+            res.json({
             message: "OK",
-            data: data
-        });
+            token: data
+            });
+        }
     });
 }
 

@@ -5,14 +5,18 @@ const Schema = mongoose.Schema;
 
 const loginSchema = new Schema(
     {
-        usuario: {
+        user: {
             type:"String",
             required: true,
             unique: true
         },
-        contrasenia: {
+        password: {
             type:"String",
             required: true
+        },
+        token : {
+            type: "String",
+            required: false
         }
     },
     {
